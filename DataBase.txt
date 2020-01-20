@@ -1,0 +1,110 @@
+CREATE DATABASE  IF NOT EXISTS `sqldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `sqldb`;
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+--
+-- Host: localhost    Database: sqldb
+-- ------------------------------------------------------
+-- Server version	5.7.29-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `history`
+--
+
+DROP TABLE IF EXISTS history;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE history (
+  idhistory int(11) NOT NULL AUTO_INCREMENT,
+  iduser int(11) NOT NULL,
+  iditem int(11) NOT NULL,
+  quantity int(11) NOT NULL DEFAULT '1',
+  price double NOT NULL DEFAULT '0',
+  purchased tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (idhistory)
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO history VALUES (72,1,18,2,66,1);
+INSERT INTO history VALUES (73,1,19,2,0.66,1);
+INSERT INTO history VALUES (74,1,18,2,66,1);
+INSERT INTO history VALUES (75,2,21,8,1202.16,1);
+INSERT INTO history VALUES (77,2,20,7,1399.93,1);
+
+--
+-- Table structure for table `shopitem`
+--
+
+DROP TABLE IF EXISTS shopitem;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE shopitem (
+  iditem int(11) NOT NULL AUTO_INCREMENT,
+  priceitem double DEFAULT '0',
+  nameitem varchar(45) DEFAULT NULL,
+  pictureitem mediumblob,
+  PRIMARY KEY (iditem)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shopitem`
+--
+
+INSERT INTO shopitem VALUES (18,33,'Headphones',NULL);
+INSERT INTO shopitem VALUES (19,0.33,'Apple',NULL);
+INSERT INTO shopitem VALUES (20,199.99,'TV',NULL);
+INSERT INTO shopitem VALUES (21,150.27,'Key Caps',NULL);
+INSERT INTO shopitem VALUES (22,21.56,'Vinyl',NULL);
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS user;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  iduser int(11) NOT NULL AUTO_INCREMENT,
+  nameuser varchar(16) NOT NULL,
+  passworduser varchar(45) NOT NULL,
+  PRIMARY KEY (iduser)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO user VALUES (1,'test','test');
+INSERT INTO user VALUES (2,'henry','bo');
+
+--
+-- Dumping events for database 'sqldb'
+--
+
+--
+-- Dumping routines for database 'sqldb'
+--
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed
